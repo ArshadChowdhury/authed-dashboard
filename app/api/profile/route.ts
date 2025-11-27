@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import axios from "axios";
 import { cookies } from "next/headers";
+import { axiosInstance } from "@/lib/api/axios";
 
 export async function GET() {
   try {
@@ -15,11 +15,9 @@ export async function GET() {
     }
 
     // Simulate authenticated API call
-    const res = await axios.get(`${process.env.BACKEND_DUMMY_URL}/users/2`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const res = await axiosInstance.get(
+      `${process.env.BACKEND_DUMMY_URL}/users/2`
+    );
 
     const user = res.data.data;
 

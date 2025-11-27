@@ -16,6 +16,10 @@ export async function POST(req: Request) {
 
     const token = res.data.token;
 
+    if (!token) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     // Set HttpOnly cookie
     const response = NextResponse.json(
       { success: true, token },

@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 
 export async function POST() {
-  const response = NextResponse.redirect(
-    new URL(
-      "/login",
-      process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
-    )
+  // Create a simple success response. The status 200 (OK) signals success to the client.
+  const response = NextResponse.json(
+    { message: "Logout successful !" },
+    { status: 200 }
   );
 
   // Clear the cookie
@@ -16,7 +15,7 @@ export async function POST() {
     secure: process.env.NODE_ENV === "production",
     path: "/",
     sameSite: "lax",
-    maxAge: 0, // deletes the cookie
+    maxAge: 0, // This is the crucial step that deletes the cookie
   });
 
   return response;

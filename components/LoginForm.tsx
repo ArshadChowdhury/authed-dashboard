@@ -31,7 +31,7 @@ export default function LoginFormWithReusableComponent() {
     <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
       <div className="text-center mb-8">
         <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
-          <User className="w-8 h-8 text-indigo-600" />
+          <User className="w-8 h-8 text-primary" />
         </div>
         <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
         <p className="text-gray-600 mt-2">Sign in to access your dashboard</p>
@@ -61,7 +61,7 @@ export default function LoginFormWithReusableComponent() {
         <button
           onClick={handleSubmit(onSubmit)}
           disabled={isLoggingIn || isSubmitting}
-          className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+          className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-hover transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
         >
           {isLoggingIn || isSubmitting ? (
             <>

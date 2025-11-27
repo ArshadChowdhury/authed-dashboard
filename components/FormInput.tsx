@@ -36,7 +36,7 @@ export default function FormInput({
         type={type}
         placeholder={placeholder}
         disabled={disabled}
-        className={`w-full px-4 py-3 text-gray-950 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition disabled:opacity-50 disabled:cursor-not-allowed ${
+        className={`w-full px-4 py-3 text-gray-950 border rounded-lg outline-none transition disabled:opacity-50 disabled:cursor-not-allowed ${
           error ? "border-red-500 bg-red-50" : "border-gray-300"
         }`}
       />
