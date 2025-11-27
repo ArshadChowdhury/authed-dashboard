@@ -3,6 +3,7 @@
 import { LogOut, User as UserIcon, Mail, Loader2 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { User } from "@/lib/types/types";
+import Image from "next/image";
 
 interface UserProfileProps {
   initialUser: User | any;
@@ -36,7 +37,7 @@ export default function UserProfile({ initialUser }: UserProfileProps) {
           <button
             onClick={() => logout()}
             disabled={isLoggingOut}
-            className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition font-medium disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {isLoggingOut ? (
               <>
@@ -58,12 +59,15 @@ export default function UserProfile({ initialUser }: UserProfileProps) {
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           <div className="bg-linear-to-br from-indigo-500 to-purple-600 h-32"></div>
 
-          <div className="px-8 pb-8">
+          <div className="px-8 pt-8">
             <div className="flex flex-col sm:flex-row items-center sm:items-end gap-6 -mt-16">
-              <img
-                src={displayUser.avatar}
-                alt={`${displayUser.first_name} ${displayUser.last_name}`}
+              <Image
+                priority
+                src={displayUser?.avatar || "/placeholder_image.jpg"}
                 className="w-32 h-32 rounded-full border-4 border-white shadow-xl"
+                height={300}
+                width={300}
+                alt={`${displayUser.first_name} ${displayUser.last_name}`}
               />
 
               <div className="text-center sm:text-left mb-4">
@@ -106,7 +110,7 @@ export default function UserProfile({ initialUser }: UserProfileProps) {
               </div>
             </div>
 
-            <div className="mt-6 bg-gray-50 rounded-xl p-6 border border-gray-200">
+            <div className="my-6 bg-gray-50 rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Account Information
               </h3>

@@ -16,7 +16,7 @@ export default function LoginFormWithReusableComponent() {
     formState: { errors, isSubmitting },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
-    mode: "onChange", // Validate on change
+    mode: "onChange",
     defaultValues: {
       email: "",
       password: "",
@@ -42,7 +42,7 @@ export default function LoginFormWithReusableComponent() {
           label="Email Address"
           id="email"
           type="email"
-          placeholder="eve.holt@reqres.in"
+          placeholder="Enter your email here"
           disabled={isLoggingIn || isSubmitting}
           error={errors.email}
           register={register("email")}
@@ -75,11 +75,9 @@ export default function LoginFormWithReusableComponent() {
       </div>
 
       <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-        <p className="text-sm text-blue-800 font-medium mb-1">
-          Demo Credentials:
-        </p>
-        <p className="text-xs text-blue-700">Email: eve.holt@reqres.in</p>
-        <p className="text-xs text-blue-700">Password: cityslicka</p>
+        <p className="text-blue-800 font-medium mb-1">Demo Credentials:</p>
+        <p className="text-sm text-blue-700">Email: eve.holt@reqres.in</p>
+        <p className="text-sm text-blue-700">Password: cityslicka</p>
       </div>
     </div>
   );

@@ -6,10 +6,13 @@ export async function POST(req: Request) {
     const { email, password } = await req.json();
 
     // Calling mock API to get token
-    const res = await axiosInstance.post("https://reqres.in/api/login", {
-      email,
-      password,
-    });
+    const res = await axiosInstance.post(
+      `${process.env.BACKEND_DUMMY_URL}/login`,
+      {
+        email,
+        password,
+      }
+    );
 
     const token = res.data.token;
 

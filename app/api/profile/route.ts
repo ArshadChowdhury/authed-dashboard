@@ -15,7 +15,7 @@ export async function GET() {
     }
 
     // Simulate authenticated API call
-    const res = await axios.get("https://reqres.in/api/users/2", {
+    const res = await axios.get(`${process.env.BACKEND_DUMMY_URL}/users/2`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
