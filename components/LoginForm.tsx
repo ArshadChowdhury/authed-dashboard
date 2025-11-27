@@ -61,7 +61,7 @@ export default function LoginFormWithReusableComponent() {
         <button
           onClick={handleSubmit(onSubmit)}
           disabled={isLoggingIn || isSubmitting}
-          className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
         >
           {isLoggingIn || isSubmitting ? (
             <>

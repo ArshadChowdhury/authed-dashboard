@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export default function middleware(request: NextRequest) {
   // Read the token from HttpOnly cookie
-  const token = request.cookies.get("token")?.value;
+  const token = request.cookies.get("auth_token")?.value;
 
   const pathname = request.nextUrl.pathname;
 

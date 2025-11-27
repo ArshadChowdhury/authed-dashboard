@@ -2,11 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { authApi } from "@/lib/api/auth.api";
-import { useAuthStore } from "@/store/authStore";
 
 export const useUser = () => {
-  const { setUser } = useAuthStore();
-
   const {
     data: user,
     isLoading,
@@ -15,13 +12,7 @@ export const useUser = () => {
     queryKey: ["user"],
     queryFn: authApi.getCurrentUser,
     retry: false,
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    // onSuccess: (data) => {
-    //   setUser(data);
-    // },
-    // onError: () => {
-    //   setUser(null);
-    // },
+    staleTime: 5 * 60 * 1000,
   });
 
   return {
